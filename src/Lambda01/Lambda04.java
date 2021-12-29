@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
-    public class Lambda04 {
+public class Lambda04 {
      public static void main(String[] args) {
         List<String> list = new ArrayList<>(Arrays.asList("cincix","abuziddin","mehmet","emre","nilgun","yıldız","kader","emine","islam","islam","emre"));
-        bykHarfTekrarsizSira(list);
+         List<Integer> liste = new ArrayList<>(Arrays.asList(5,8,-5,69,79,80));
+
+         bykHarfTekrarsizSira(list);
         listElemanlariniKrakterSayisiniTersSiraliTekrarsiz(list);
         krakterSayisiKbSirala(list);
         sonHarfTersSirali(list);
@@ -19,6 +22,9 @@ import java.util.List;
          xIleBitenKontrol1(list);
          krakterSayisiEnBuyuk(list);
          krakterSayisiEnBuyuk(list);
+         krakterSayisiEnBuyuk2(list);
+         sonHarfIlkElemanHaricSirala(liste,list);
+
         }
         public static void yazdirma(String k){
         System.out.print(k+" ");
@@ -104,7 +110,32 @@ import java.util.List;
             System.out.println(list.stream().
                     sorted(Comparator.comparing(t -> t.toString().length()).// length karakter uzunluguna gore siraladi.
                             reversed()).findFirst());//ters sira yazdirip ilki karakter sayisi en buyuk oldu
+            System.out.println(list.stream().
+                    sorted(Comparator.comparing(t -> t.toString().length()).// length karakter uzunluguna gore siraladi.
+                            reversed()).
+                    limit(1));// limit(a) akisdan cikan elemanlardan ilk a elemani alir.
+
+     }
+
+        public static void krakterSayisiEnBuyuk2(List<String> list){
+            System.out.println();
+            Stream<String> sonisim = list.stream().
+                    sorted(Comparator.comparing(t -> t.toString().length()).// length karakter uzunluguna gore siraladi.
+                            reversed());//ters sira yazdirip ilki karakter sayisi en buyuk oldu
+            System.out.println(list.stream().
+                    sorted(Comparator.comparing(t -> t.toString().length()).// length karakter uzunluguna gore siraladi.
+                            reversed()).limit(1));// limit(a) akisdan cikan elemanlardan ilk a elemani alir.
+            System.out.println(Arrays.toString(sonisim.toArray()));//arraye cevirip yazdirdik.
         }
+
+        //list elemanlarini son harfine gore siralayip ilk eleman haric kalan elemanlari yazdiriniz.
+
+    public static void sonHarfIlkElemanHaricSirala(List<Integer> liste, List<String> list){
+        System.out.println(liste.stream().reduce(Integer::min));
+         list.stream().sorted(Comparator.comparing(t->t.toString().charAt(t.length()-1))).
+                 skip(1).//akistan cikan elemanlarin 1. elemani atlar.
+                 forEach(t->System.out.print(t+" "));
+    }
 
 
 

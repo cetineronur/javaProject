@@ -28,8 +28,8 @@ public class Lambda03 {
 
     public static void toplaEl1(List<Integer> list) {
         System.out.println();
-        Optional<Integer> toplam = list.stream().reduce((t, u) -> t + u);
-        System.out.println(toplam);
+        System.out.println(list.stream().reduce((t, u) -> t + u));
+      //  System.out.println(toplam);
     }
 
     public static void toplaEl2(List<Integer> list) {
