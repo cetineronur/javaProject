@@ -44,16 +44,32 @@ public class Lambda07 {
 
         //TASK 06 --> haluk.txt dosyasindaki tum kelimeleri natural order  yazdiriniz.
         System.out.println("\n*** haluk.txt dosyasindaki tum kelimeleri natural order  yazdiriniz. -->  ");
+        System.out.println(Files.lines(Paths.get("src/Lambda01/haluk.txt")).map(t -> t.toLowerCase().split(" ")).
+                flatMap(Arrays::stream).sorted().toList());
+
+
         //TASK 07 --> haluk.txt dosyasinda "basari" kelimesinin kac kere gectigini buyuk harf kucuk harf bagımsız yaziniz.
         System.out.println("\n*** haluk.txt dosyasinda basari kelimesinin kac kere gectigini  yazdiriniz. -->  ");
+        System.out.println(Files.lines(Paths.get("src/Lambda01/haluk.txt")).map(t -> t.split(" ")).flatMap(Arrays::stream).filter(t -> t.equals("onur")).count());
+
         //TASK 08 --> haluk.txt dosyasinda "a" harfi gecen kelimelerin sayisini ekrana yazdiran programi yaziniz
         System.out.println("\n*** haluk.txt dosyasinda a harfi gecen kelimelerin sayisini ekrana yazdiran programi yazdiriniz. -->  ");
+        System.out.println(Files.lines(Paths.get("src/Lambda01/haluk.txt")).map(t -> t.split(" ")).flatMap(Arrays::stream).filter(t -> t.contains("a")).count());
+
         //TASK 09 --> haluk.txt dosyasinda icinde "a" harfi gecen kelimeleri yazdiriniz
         System.out.println("\n*** haluk.txt dosyasinda a harfi gecen kelimeler yazdiriniz. -->  ");
+        System.out.println(Files.lines(Paths.get("src/Lambda01/haluk.txt")).map(t -> t.split(" ")).flatMap(Arrays::stream).filter(t -> t.contains("a")).toList());
+
+
         //TASK 10 --> haluk.txt dosyasinda kac /farklı harf kullanildigini yazdiriniz
         System.out.println("\n*** haluk.txt dosyasinda kac /farklı harf kullanildigini  yazdiriniz. -->  ");
+        System.out.println(Files.lines(Paths.get("src/Lambda01/haluk.txt")).map(t -> t.replaceAll("\\W", "").replaceAll("\\d", "").split("")).flatMap(Arrays::stream).distinct().count());
+
+
         //TASK 11 --> haluk.txt dosyasinda kac farkli kelime kullanildigini yazdiriniz
         System.out.println("\n*** haluk.txt dosyasinda kac farkli kelime kullanildigini  yazdiriniz. -->  ");
+        System.out.println(Files.lines(Paths.get("src/Lambda01/haluk.txt")).map(t -> t.replaceAll("[.!?,\\-]", "").split(" ")).flatMap(Arrays::stream).distinct().count());
+
     }
 
 }
