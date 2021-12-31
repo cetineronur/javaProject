@@ -52,9 +52,11 @@ public class Lambda07 {
         System.out.println("\n*** haluk.txt dosyasinda basari kelimesinin kac kere gectigini  yazdiriniz. -->  ");
         System.out.println(Files.lines(Paths.get("src/Lambda01/haluk.txt")).map(t -> t.split(" ")).flatMap(Arrays::stream).filter(t -> t.equals("onur")).count());
 
+
         //TASK 08 --> haluk.txt dosyasinda "a" harfi gecen kelimelerin sayisini ekrana yazdiran programi yaziniz
         System.out.println("\n*** haluk.txt dosyasinda a harfi gecen kelimelerin sayisini ekrana yazdiran programi yazdiriniz. -->  ");
         System.out.println(Files.lines(Paths.get("src/Lambda01/haluk.txt")).map(t -> t.split(" ")).flatMap(Arrays::stream).filter(t -> t.contains("a")).count());
+
 
         //TASK 09 --> haluk.txt dosyasinda icinde "a" harfi gecen kelimeleri yazdiriniz
         System.out.println("\n*** haluk.txt dosyasinda a harfi gecen kelimeler yazdiriniz. -->  ");
